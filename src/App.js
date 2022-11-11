@@ -11,6 +11,25 @@ class App extends Component {
       personal: "",
       education: "",
       work: "",
+      information: {
+        personal: {
+          name: "",
+          email: "",
+          phone: "",
+        },
+        education: {
+          schoolName: "",
+          field: "",
+          gradDate: "",
+        },
+        work: {
+          companyName: "",
+          position: "",
+          tasks: "",
+          startDate: "",
+          endDate: "",
+        },
+      },
     };
   }
 
@@ -36,8 +55,6 @@ class App extends Component {
         work: this.state.work,
       },
     });
-
-    console.log(this.state);
   };
 
   render() {
@@ -49,7 +66,7 @@ class App extends Component {
           <Work sendData={this.handleWork} />
           <button type="submit">Submit</button>
         </form>
-        <Display info={this.state.information} />
+        <Display info={{ ...this.state.information }} />
       </div>
     );
   }

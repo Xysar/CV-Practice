@@ -1,24 +1,8 @@
 import React, { Component } from "react";
 
 class Education extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      schoolName: "",
-      field: "",
-      gradDate: "",
-    };
-  }
-
   handleChange = (num, event) => {
-    if (num === 0) {
-      this.setState({ schoolName: event.target.value });
-    } else if (num === 1) {
-      this.setState({ field: event.target.value });
-    } else this.setState({ gradDate: event.target.value });
-
-    this.props.sendData(this.state);
+    this.props.sendData(num, event.target.value);
   };
 
   render() {
@@ -29,6 +13,7 @@ class Education extends Component {
         <input
           type="text"
           id="school-name-input"
+          value={this.props.values.schoolName}
           onChange={(e) => {
             this.handleChange(0, e);
           }}
@@ -37,6 +22,7 @@ class Education extends Component {
         <input
           type="text"
           id="study-field-input"
+          value={this.props.values.field}
           onChange={(e) => {
             this.handleChange(1, e);
           }}
@@ -45,6 +31,7 @@ class Education extends Component {
         <input
           type="date"
           id="graduation-input"
+          value={this.props.values.gradDate}
           onChange={(e) => {
             this.handleChange(2, e);
           }}

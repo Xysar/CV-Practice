@@ -1,24 +1,8 @@
 import React, { Component } from "react";
 
 class Personal extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      name: "",
-      email: "",
-      phone: "",
-    };
-  }
-
   handleChange = (num, event) => {
-    if (num === 0) {
-      this.setState({ name: event.target.value });
-    } else if (num === 1) {
-      this.setState({ email: event.target.value });
-    } else this.setState({ phone: event.target.value });
-
-    this.props.sendData(this.state);
+    this.props.sendData(num, event.target.value);
   };
 
   render() {
@@ -29,18 +13,21 @@ class Personal extends Component {
         <input
           type="text"
           id="name-input"
+          value={this.props.values.name}
           onChange={(e) => this.handleChange(0, e)}
         ></input>
         <label htmlFor="email-input">Email:</label>
         <input
           type="email"
           id="email-input"
+          value={this.props.values.email}
           onChange={(e) => this.handleChange(1, e)}
         ></input>
         <label htmlFor="phone-input">Phone #:</label>
         <input
           type="tel"
           id="phone-input"
+          value={this.props.values.phone}
           onChange={(e) => this.handleChange(2, e)}
         ></input>
       </section>

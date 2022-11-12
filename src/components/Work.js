@@ -1,30 +1,8 @@
 import React, { Component } from "react";
 
 class Work extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      companyName: "",
-      position: "",
-      tasks: "",
-      startDate: "",
-      endDate: "",
-    };
-  }
-
   handleChange = (num, event) => {
-    if (num === 0) {
-      this.setState({ companyName: event.target.value });
-    } else if (num === 1) {
-      this.setState({ position: event.target.value });
-    } else if (num === 2) {
-      this.setState({ tasks: event.target.value });
-    } else if (num === 3) {
-      this.setState({ startDate: event.target.value });
-    } else this.setState({ endDate: event.target.value });
-
-    this.props.sendData(this.state);
+    this.props.sendData(num, event.target.value);
   };
 
   render() {
@@ -37,6 +15,7 @@ class Work extends Component {
             <input
               type="text"
               className="company-name"
+              value={this.props.values.companyName}
               onChange={(e) => {
                 this.handleChange(0, e);
               }}
@@ -45,6 +24,7 @@ class Work extends Component {
             <input
               type="text"
               className="position-title"
+              value={this.props.values.position}
               onChange={(e) => {
                 this.handleChange(1, e);
               }}
@@ -54,6 +34,7 @@ class Work extends Component {
               cols="40"
               rows="5"
               className="job-tasks"
+              value={this.props.values.tasks}
               onChange={(e) => {
                 this.handleChange(2, e);
               }}
@@ -62,6 +43,7 @@ class Work extends Component {
             <input
               type="date"
               className="start-date"
+              value={this.props.values.startDate}
               onChange={(e) => {
                 this.handleChange(3, e);
               }}
@@ -70,6 +52,7 @@ class Work extends Component {
             <input
               type="date"
               className="end-date"
+              value={this.props.values.endDate}
               onChange={(e) => {
                 this.handleChange(4, e);
               }}

@@ -45,6 +45,11 @@ class App extends Component {
         },
       },
     };
+
+    this.handlePersonal.bind(this);
+    this.handleEducation.bind(this);
+    this.handleWork.bind(this);
+    this.editForm.bind(this);
   }
 
   handleEducation = (num, data) => {
@@ -195,7 +200,7 @@ class App extends Component {
   editForm = () => {
     this.setState({
       personal: this.state.display.personal,
-      edudcation: this.state.display.education,
+      education: this.state.display.education,
       work: this.state.display.work,
     });
   };

@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 
 class Education extends Component {
-  handleChange = (num, event) => {
-    this.props.sendData(num, event.target.value);
-  };
-
   render() {
     return (
       <section>
@@ -15,7 +11,7 @@ class Education extends Component {
           id="school-name-input"
           value={this.props.values.schoolName}
           onChange={(e) => {
-            this.handleChange(0, e);
+            this.props.sendData(0, e.target.value);
           }}
         ></input>
         <label htmlFor="study-field-input">Field of Study:</label>
@@ -24,7 +20,7 @@ class Education extends Component {
           id="study-field-input"
           value={this.props.values.field}
           onChange={(e) => {
-            this.handleChange(1, e);
+            this.props.sendData(1, e.target.value);
           }}
         ></input>
         <label htmlFor="graduation-input">Graduation Date:</label>
@@ -33,7 +29,7 @@ class Education extends Component {
           id="graduation-input"
           value={this.props.values.gradDate}
           onChange={(e) => {
-            this.handleChange(2, e);
+            this.props.sendData(2, e.target.value);
           }}
         ></input>
       </section>

@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 
 class Work extends Component {
-  handleChange = (num, event) => {
-    this.props.sendData(num, event.target.value);
-  };
-
   render() {
     return (
       <section>
@@ -17,7 +13,7 @@ class Work extends Component {
               className="company-name"
               value={this.props.values.companyName}
               onChange={(e) => {
-                this.handleChange(0, e);
+                this.props.sendData(0, e.target.value);
               }}
             ></input>
             <label htmlFor="position-title">Position title:</label>
@@ -26,7 +22,7 @@ class Work extends Component {
               className="position-title"
               value={this.props.values.position}
               onChange={(e) => {
-                this.handleChange(1, e);
+                this.props.sendData(1, e.target.value);
               }}
             ></input>
             <label htmlFor="job-tasks">Responsibilities:</label>
@@ -36,7 +32,7 @@ class Work extends Component {
               className="job-tasks"
               value={this.props.values.tasks}
               onChange={(e) => {
-                this.handleChange(2, e);
+                this.props.sendData(2, e.target.value);
               }}
             ></textarea>
             <label htmlFor="start-date">Start Date:</label>
@@ -45,7 +41,7 @@ class Work extends Component {
               className="start-date"
               value={this.props.values.startDate}
               onChange={(e) => {
-                this.handleChange(3, e);
+                this.props.sendData(3, e.target.value);
               }}
             ></input>
             <label htmlFor="end-date">End Date:</label>
@@ -54,7 +50,7 @@ class Work extends Component {
               className="end-date"
               value={this.props.values.endDate}
               onChange={(e) => {
-                this.handleChange(4, e);
+                this.props.sendData(4, e.target.value);
               }}
             ></input>
           </li>
